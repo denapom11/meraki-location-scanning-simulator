@@ -19,6 +19,7 @@ import random
 import math
 import datetime
 import time
+import requests
 
 app = Flask(__name__)
 
@@ -193,7 +194,8 @@ def updateLocationData(ap):
 
 def postJSON(ap):
     global apData
-
+    global serverURL
+    requests.post(serverURL, json=apData[ap])
     print(apData[ap])
 
 def apCycle(numAPs):
